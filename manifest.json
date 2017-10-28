@@ -1,0 +1,36 @@
+{
+
+  "manifest_version": 2,
+  "name": "Parent Folder",
+  "version": "1.0.0",
+
+  "description": "Go to the parent folder with Alt-Up or toolbar button.",
+  "author": "xia_sava",
+  "homepage_url": "https://github.com/xia-sava/parent-folder",
+
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+
+  "permissions": ["activeTab"],
+
+  "icons": {
+    "72": "icons/parent-folder.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "72": "icons/parent-folder.png"
+    },
+    "browser_style": true
+  },
+
+  "commands": {
+    "parent-folder": {
+      "suggested_key": {
+        "default": "Alt+Up"
+      },
+      "description": "Go to the parent folder"
+    }
+  }
+
+}
