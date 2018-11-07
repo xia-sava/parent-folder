@@ -1,23 +1,17 @@
+if (location.search){
+    // Cut query string
+	location.search = '';
+} else if (location.pathname == '/'){
+	var domains = location.hostname.split('.');
 
-let url = location.href;
-
-if (location.search) {
-    // クエリストリングをカットするモード
-    url = url.replace(location.search, '');
+	if (domains.length > 1){
+		// Cut subdomain
+		domains.shift();
+		location.hostname = domains.join('.');
+	}
 } else {
-    if (url.match(/^(\w+:\/\/)([^\/]+)(\/.*)?$/)) {
-        const [protocol, domain, path] = [RegExp.$1, RegExp.$2, RegExp.$3];
-        if (path === '/' || !path) {
-            // サブドメインをカットするモード
-            url = url.replace(new RegExp('^' + protocol + '\\w+\\.'), protocol);
-        } else {
-            // パスを繰り上げるモード
-            url = url.replace(/\/$/, '');
-            url = url.substr(0, url.lastIndexOf('/') + 1);
-        }
-    }
-}
-
-if (location.href !== url) {
-    location.href = url;
+	// Cut path
+	var comps = location.pathname.split('/');
+	comps.pop();
+	location.pathname = comps.join('/');
 }
