@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Parent Folder",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "description": "Go to the parent folder with Alt-Up or toolbar button.",
   "author": "xia_sava",
